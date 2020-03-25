@@ -1,0 +1,8 @@
+prefix=/Data/catkin-ws/src/tt_mission_master/build/devel
+
+Name: tt_mission_master
+Description: Description of tt_mission_master
+Version: 0.0.0
+Cflags: -I/Data/catkin-ws/src/tt_mission_master/build/devel/include
+Libs: -L/Data/catkin-ws/src/tt_mission_master/build/devel/lib 
+Requires: message_runtime

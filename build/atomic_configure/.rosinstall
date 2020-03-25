@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /Data/catkin-ws/src/tt_mission_master/build/devel/setup.sh
