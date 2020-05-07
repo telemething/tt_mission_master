@@ -197,6 +197,8 @@ include_directories(include ${catkin_INCLUDE_DIRS}
 
 
 add_executable(tt_mission_master_node
+  include/tt_mission_master/service_advertiser.h
+  src/service_advertiser.cpp
   src/tt_mission_master.cpp
   include/tt_mission_master/FlexBeClient.h
   src/global_pos_mission_client.cpp

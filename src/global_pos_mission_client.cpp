@@ -12,6 +12,11 @@
   {
     nodeHandle_ = nh;
     ROS_INFO("[tt_master] Node started.");
+
+    if(_serviceAdvertiser.StartService())
+      ROS_INFO("[tt_master] Advertiser started.");    
+    else
+      ROS_INFO("[tt_master] Advertiser failed to start.");
   }
 
   //***************************************************************************
@@ -34,10 +39,12 @@
   {
 
     //tt_mission_service_ = nodeHandle_.advertiseService("tt_mission_service", &tt_master::serviceCallback, this);
-    WayointPush_service_ = nodeHandle_.advertiseService("WaypointPush_service", &tt_master::WaypointPushServiceCallback, this);
+    WayointPush_service_ = nodeHandle_.advertiseService(
+      "WaypointPush_service", &tt_master::WaypointPushServiceCallback, this);
 
 
-    FlexbeBehaviorClient_ = new FlexbeBehaviorClientType("/flexbe/execute_behavior", true);
+    FlexbeBehaviorClient_ = new FlexbeBehaviorClientType(
+      "/flexbe/execute_behavior", true);
 
     ROS_INFO("Waiting for action server to start.");
     FlexbeBehaviorClient_->waitForServer();

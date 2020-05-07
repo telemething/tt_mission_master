@@ -9,6 +9,7 @@
 //#include <tt_mission_master/tt_mission.h>
 #include <tt_mission_master/WaypointPush.h>
 #include <tt_mission_master/WaypointPushRequest.h>
+#include <tt_mission_master/service_advertiser.h>
 
 typedef actionlib::SimpleActionClient<flexbe_msgs::BehaviorExecutionAction> FlexbeBehaviorClientType;
 
@@ -20,6 +21,8 @@ private:
   FlexbeBehaviorClientType* FlexbeBehaviorClient_;
   ros::ServiceServer tt_mission_service_;
   ros::ServiceServer WayointPush_service_;
+
+  ServiceAdvertiser _serviceAdvertiser;
 
 public:
 
