@@ -7,7 +7,7 @@ class ServiceAdvertiser
 {
 private:
 
-    std::string _addressPrefix = "192.168";
+    std::string _addressPrefix = "192.168.1";
     int sock;
     struct sockaddr_in _broadcastAddr;
     int _addrLen;

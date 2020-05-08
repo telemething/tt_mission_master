@@ -2,10 +2,10 @@
 <launch>
     <group> <!-- FlexBe group -->
         <!-- Launch FlexbE Onboard, which is the base process for FlexBE  -->
-        <include file="$(find flexbe_onboard)/launch/behavior_onboard.launch"/>
+        <!--<include file="$(find flexbe_onboard)/launch/behavior_onboard.launch"/>-->
         <!-- Launch FlexbE action server, whic provides an action server for FlexBE -->
-        <node name="be_action_server" pkg="flexbe_widget" type="be_action_server">
-        </node>
+        <!--<node name="be_action_server" pkg="flexbe_widget" type="be_action_server">
+        </node>-->
     </group>
     <group>
         <node name="tt_mission_master_node" pkg="tt_mission_master" type="tt_mission_master_node">
@@ -15,7 +15,10 @@
     </group>
     <group> <!-- RosBridge group -->
         <!-- Launch RosBridge, so that we can access ROS from outside  -->
-        <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+        <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+		<arg name="port" value="9090"/>
+		<arg name="websocket_external_port" value="0"/>
+	</include>
     </group>
 </launch>
  
